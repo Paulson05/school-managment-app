@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
-use App\Models\quizes;
+use App\Models\Question;
 use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
 
-class QuizController extends Controller
+class QuestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,10 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $qst =  Question::all();
+        return view ('backend.pages.question.view')->with([
+            'qst' => $qst
+        ]);
     }
 
     /**
@@ -25,28 +29,40 @@ class QuizController extends Controller
      */
     public function create()
     {
-        $quizes  = quizes::orderBy('id','desc')->paginate(10);
-        return view('backend.pages.quiz.create')->with([
-           'quizes'=> $quizes,
-        ]);
+        //
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function store(Request $request)
     {
 
         $this->validate($request,[
-            'quiz_name' => 'required',
-            'description'=> 'required',
-            'quiz_date'=> 'required',
-            'quiz_time'=> 'required',
-            'number_of_question'=> 'required'
+            'question'=>'required|unique:questions,question,NULL,id,quizes_id,'.$request->quizes_id,
+            'quizes_id'=>'required',
 
         ]);
-        $data = $request->all();
-        quizes::create($data);
-        return redirect()->back();
-    }
 
+        $data=$request->all();
+        $ques= Question::create($data);
+
+        if(count($request->option) > 0) {
+            foreach ($request->option as $item=>$v) {
+                $datad=array(
+                    'questions_id'=>$ques->id,
+                    'option'=>$request->option[$item]
+                );
+                Options::insert($datad);
+            }
+        }
+
+        return redirect()->back()->with('success','Data add successfully');
+    }
 
 
     /**
@@ -92,12 +108,5 @@ class QuizController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function addQuestion($id){
-        $quizId =quizes::find($id);
-        return view('backend.pages.question.add_question')->with([
-            'quizId' => $quizId
-        ]);
     }
 }

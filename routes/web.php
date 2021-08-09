@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Exam\QuestionsController;
 use App\Http\Controllers\Exam\QuizController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,8 @@ Route::get('/', function () {
     return view('backend.pages.dashboard');
 });
 Route::resource('quiz',QuizController::class)->except('index');
-Route::get('quizes/addQuestion/{id}', [QuizController::class, 'addQustion'])->name('addquestion');
+Route::get('quizes/addQuestion/{id}', [QuizController::class, 'addQuestion'])->name('addquestion');
+Route::resource('question',QuestionsController::class)->except('destroy');
 
 Auth::routes();
 

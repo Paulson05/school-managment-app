@@ -16,7 +16,7 @@
                    </div>
                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">Description</label>
                    <div class="form-group">
-                       <input type="text" id="form-field-2" placeholder="Descriotion" class="col-xs-10 col-sm-5" name="description" required="" />
+                       <input type="text" id="form-field-2" placeholder="Description" class="col-xs-10 col-sm-5" name="description" required="" />
                    </div>
                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2">Quiz Date</label>
                    <div class="form-group">
@@ -85,12 +85,10 @@
                         <td>{{$data->number_of_question}} </td>
                         <td><input type="checkbox" name="status" class="quiz-status" data_id="{{$data->id}}" {{$data->status=='1'?'checked':''}}> </td>
 
-                        <td><a href="/quize/addquestion/{{$data->id}}">Add Question</a></td>
+                        <td><a href="{{route('addquestion',$data->id)}}">Add Question</a></td>
                         <td><a href="/quizes/{{$data->id}}">Details</a></td>
                         <td><a href="/quizes/{{$data->id}}/edit">Edit</a></td>
-                        <td>{{Form::open(['url'=>'/quizes/'.$data->id,'method'=>'Delete'])}}
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete this?')">Delete</button>
-                            {{Form::close()}}</td>
+                        <td>delete</td>
                     </tr>
                 @endforeach
                 </tbody>
