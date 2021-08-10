@@ -20,9 +20,8 @@
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body {margin:0;height:2000px;
+        body {margin:0;height:2000px;}
 
-        }
 
         .icon-bar {
             position: fixed;
@@ -82,10 +81,10 @@
          background-color: #ff4d4d;
          color: #fff;
         }*/
-        .ul-list li:hover{
-            background-color: #ffffff;
-            color: red;
-        }
+        /*.ul-list li:hover{*/
+        /*    background-color: #ffffff;*/
+        /*    color: red;*/
+        /*}*/
         .ul-list li{
             padding: 10px;
         }
@@ -95,47 +94,50 @@
     </style>
 @endsection
 @section('content')
-    <section class=" " oncopy="return false;" oncut="return false;" onpaste="return false;" oncontextmenu="return false;">
+    <section class=" ">
         <div class="container">
             <div class="row">
 
-                @if($questions->count()>0)
-                    <p>
-                        Exam Time:    &nbsp; <span class="js-timeout" >{{$quiz->quiz_time}}</span>
-                    </p>
 
-                    <div class="icon-bar" >
-                        <button class="btn btn-lg">Exam Time CountDown : <span class="js-timeout"></span>  </button>
-                    </div>
 
-                    <form action="{{route('frontend.exam.post')}}" method="POST" name="exam">
-                        {{csrf_field()}}
-                        <div class="col-md-12">
 
-                            @foreach($questions as $key=>$ques)
-                                <input type="hidden" name="questions_id{{$key+1}}" value="{{$ques->id}}">
+                <h3>{{$quiz->quiz_name}}</h3><hr>
 
-                                <input type="hidden" name="ans{{$key+1}}" value="0">
-                                <h5 > {{$key+1}}. {{$ques->question}}</h5>
+                <div class="col-md-12">
+                    @php $sl=0; @endphp
+                    @foreach($exams as $key=>$exam)
+                        @foreach($questions as $ques)
+
+                            @if($exam->questions_id==$ques->id)
+
+                                <h5> {{++$sl}}. {{$ques->question}}</h5>
                                 <ol   class="ul-list"  style="list-style-type: lower-alpha;" >
                                     @foreach($ques->optionsdata as $opt)
-
-                                        <li><input type="radio" name="ans{{$key+1}}" value="{{$opt->option}}" /> {{$opt->option}}   </li>
-
+                                        @if($ques->answer==$exam->ans)
+                                            <li style="color: green;">&nbsp;<input type="radio" {{$opt->option==$ques->answer ? 'checked' : ''}}  /> {{$opt->option}}   </li>
+                                        @else
+                                            @if($opt->option==$ques->answer)
+                                                <li style="color: green;"><input type="radio"   value="{{$opt->option}}" checked="" /> {{$opt->option}}   </li>
+                                            @elseif($opt->option==$exam->ans)
+                                                <li style="color: red;"><input type="radio"   value="{{$opt->option}}" checked="" /> {{$opt->option}}   </li>
+                                            @else
+                                                <li ><input type="radio"   value="{{$opt->option}}"  /> {{$opt->option}}   </li>
+                                            @endif
+                                        @endif
                                     @endforeach
 
                                 </ol>
-                            @endforeach
-                            <input type="hidden" name="index" value="<?php echo $key+1 ?>">
-                            <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
-                        </div>
-                        <input type="submit" class="btn btn-sm" value="submit"  >
-                    </form>
+                                @if($ques->note!="")
+                                    <h5 style="color: blue;padding-bottom:20px;">Note: {{$ques->note}}</h5>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
 
-                @else
+                </div>
 
-                    <h2 style="color: red;"> Opps! No Data Found</h2>
-                @endif
+
+
             </div>
         </div>
     </section>

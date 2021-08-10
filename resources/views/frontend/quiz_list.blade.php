@@ -56,7 +56,7 @@
 {{--                                          $quiz=App\Model\Results::where('user_id',$user)->where('quizes_id',$quz->id)->first();--}}
 {{--                                        @endphp--}}
 
-                                            <td><a href="/exam-start/{{$quz->id}}">Start Exam</a> </td>
+                                            <td><a href="{{route('frontend.exam', $quz->id)}}">Start Exam</a> </td>
 
 
 

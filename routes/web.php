@@ -24,7 +24,13 @@ Route::get('quizes/addQuestion/{id}', [QuizController::class, 'addQuestion'])->n
 Route::resource('question',QuestionsController::class)->except('destroy');
 
 Route::get('/home-quiz', [ExamController::class, 'QuizList'])->name('frontend.quiz');
-Route::get('/exam_quiz/{id}', [ExamController::class, 'exam'])->name('frontend.exam');
+Route::get('/exam-start/{id}', [ExamController::class, 'exam'])->name('frontend.exam');
+Route::post('/exams', [ExamController::class, 'examPost'])->name('frontend.exam.post');
+Route::get('/my_result', [ExamController::class, 'examResult'])->name('frontend.exam.result');
+Route::get('/my_result-details', [ExamController::class, 'ResultDetails'])->name('frontend.exam.result.details');
+
+
+
 
 
 Auth::routes();
