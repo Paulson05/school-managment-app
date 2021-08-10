@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Exam;
-
+use App\Models\quizes;
 use App\Http\Controllers\Controller;
+use App\Models\Option;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use function Illuminate\Events\queueable;
@@ -43,21 +44,24 @@ class QuestionsController extends Controller
     {
 
         $this->validate($request,[
-            'question'=>'required|unique:questions,question,NULL,id,quizes_id,'.$request->quizes_id,
-            'quizes_id'=>'required',
+            'question'=>'required|unique:questions,question,NULL,id,quiz_id,'.$request->quiz_id,
+            'quiz_id'=>'required',
 
         ]);
 
-        $data=$request->all();
-        $ques= Question::create($data);
+
+
+
+        $ques=collect($request->only(['quiz_id','question','answer', 'note']))->put('option',implode($request->option))->all();
+        Question::create($ques);
 
         if(count($request->option) > 0) {
             foreach ($request->option as $item=>$v) {
-                $datad=array(
+                $datad = array(
                     'questions_id'=>$ques->id,
                     'option'=>$request->option[$item]
                 );
-                Options::insert($datad);
+                Option::insert($datad);
             }
         }
 

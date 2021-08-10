@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Exam\QuestionsController;
 use App\Http\Controllers\Exam\QuizController;
+use App\Http\Controllers\FrontEnd\ExamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,10 @@ Route::get('/', function () {
 Route::resource('quiz',QuizController::class)->except('index');
 Route::get('quizes/addQuestion/{id}', [QuizController::class, 'addQuestion'])->name('addquestion');
 Route::resource('question',QuestionsController::class)->except('destroy');
+
+Route::get('/home-quiz', [ExamController::class, 'QuizList'])->name('frontend.quiz');
+Route::get('/exam_quiz/{id}', [ExamController::class, 'exam'])->name('frontend.exam');
+
 
 Auth::routes();
 

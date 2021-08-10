@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use App\Models\quizes;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -57,7 +58,12 @@ class QuizController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = quizes::find($id);
+        $questions = Question::where('quiz_id', $id)->get();
+        return view('backend.pages.quiz.details')->with([
+            'data' => $data,
+            'questions' => $questions
+        ]);
     }
 
     /**

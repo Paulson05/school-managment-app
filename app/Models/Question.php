@@ -10,4 +10,13 @@ class Question extends Model
     use HasFactory;
     protected $table = 'questions';
     protected $guarded = [];
+    public function optionsdata()
+    {
+        return $this->hasMany(Option::class, 'questions_id')->inRandomOrder();
+    }
+    public function quizes()
+    {
+        return $this->belongsTo(quizes::class, 'quiz_id');
+    }
+
 }

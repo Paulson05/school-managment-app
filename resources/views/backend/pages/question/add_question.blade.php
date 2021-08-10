@@ -3,13 +3,11 @@
 @section('content')
 
     <div class="row">
+
         <div class="col-md-12">
-            <!-- PAGE CONTENT BEGINS -->
-
-
-            <div class="alert alert-danger" style="display: none;"> </div>
-            <div class="alert alert-success" style="display: none;"><p>Data add Successfully </p></div>
-
+            <div class="p-10">
+                <a href="{{route('question.index')}}">view question</a>
+            </div>
             <form class="form-horizontal"  action="{{route('question.store')}}" method="POST" >
                 {{csrf_field()}}
 
@@ -18,7 +16,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="form-field-2">Quiz Name</label>
                     <div class="col-sm-10">
 
-                        <select class="form-control" name="quizes_id" required="">
+                        <select class="form-control" name="quiz_id" required="">
                             <option value=" {{$quizId->id}} ">{{$quizId->quiz_name}}</option>
                         </select>
 

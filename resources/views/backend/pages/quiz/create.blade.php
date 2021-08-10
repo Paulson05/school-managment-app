@@ -86,7 +86,7 @@
                         <td><input type="checkbox" name="status" class="quiz-status" data_id="{{$data->id}}" {{$data->status=='1'?'checked':''}}> </td>
 
                         <td><a href="{{route('addquestion',$data->id)}}">Add Question</a></td>
-                        <td><a href="/quizes/{{$data->id}}">Details</a></td>
+                        <td><a href="{{route('quiz.show',$data->id )}}">Details</a></td>
                         <td><a href="/quizes/{{$data->id}}/edit">Edit</a></td>
                         <td>delete</td>
                     </tr>

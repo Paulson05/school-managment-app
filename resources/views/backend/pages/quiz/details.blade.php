@@ -6,7 +6,7 @@
         <div class="col-xs-12">
 
 
-            <h3>{{$data->quiz_name}}</h3>
+{{--            <h3>{{$data->quiz_name}}</h3>--}}
             <hr>
             @foreach($questions as $key=>$ques)
 
