@@ -14,14 +14,14 @@
                     </div>
                 </div>
                 <div class="header-top_login2">
-                    <a href="#">Login as lecturer </a>
+                    <a href="{{route('lecture.get.login')}}">Login as lecturer</a>
 
                 </div>
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3">
 
                 <div class="header-top_login mr-sm-3">
-                    <a  href="login.html">Login as lecturer </a>
+                    <a  href="{{route('lecture.get.login')}}">Login as lecturer </a>
 
                 </div>
 

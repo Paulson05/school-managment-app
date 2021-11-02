@@ -77,12 +77,12 @@
                             </thead>
 
                             <tbody>
-                                @foreach($users as $user)
+
                             <tr>
-                                <td>{{$user->id}}</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->phone_number}}</td>
+                                <td>id</td>
+                                <td>name</td>
+                                <td>email</td>
+                                <td>phone number</td>
 
                                 <td>
                                     <button type="button"   class="delete_post btn btn-primary btn-sm" ><i class="fa fa-trash"></i></button>
@@ -91,7 +91,7 @@
                                 <td>
 
                             </tr>
-                              @endforeach
+
                             </tbody>
                         </table>
                     </div>

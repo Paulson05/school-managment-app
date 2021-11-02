@@ -15,12 +15,12 @@
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('investment-packages.index')}}"><i data-feather="monitor"> </i><span>investment plan</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="monitor"> </i><span>investment plan</span></a></li>
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Users</span></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{route('admin.list')}}">administrators</a></li>
-                            <li><a href="{{route('user.list')}}">user(investors)</a></li>
+                            <li><a href="">administrators</a></li>
+                            <li><a href="">user(investors)</a></li>
 
                         </ul>
                     </li>

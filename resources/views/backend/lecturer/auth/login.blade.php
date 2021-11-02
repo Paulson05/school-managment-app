@@ -15,9 +15,9 @@
                 <div>
                     <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="{{asset('backend/assets/images/logo/login.png')}}" alt="looginpage"><img class="img-fluid for-dark" src="{{asset('backend/assets/images/logo/logo_dark.png')}}" alt="looginpage"></a></div>
                     <div class="login-main">
-                        <form class="theme-form" method="post" action="{{route('admin.post.login')}}">
+                        <form class="theme-form" method="post" action="{{route('lecture.post.login')}}">
                             @csrf
-                            <h4>Sign in to account</h4>
+                            <h4>login as lecturer</h4>
                             <p>Enter your email & password to login</p>
                             <div class="form-group">
                                 <label class="col-form-label">Email Address</label>

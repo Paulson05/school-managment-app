@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\auth\adminController;
 use App\Http\Controllers\Exam\QuestionsController;
 use App\Http\Controllers\Exam\QuizController;
 use App\Http\Controllers\FrontEnd\ExamController;
+use App\Http\Controllers\Lecturer\LecturerController;
 use App\Http\Controllers\user\auth\userController;
 use App\Models\Lecturer;
 use Illuminate\Support\Facades\Route;
@@ -56,13 +57,13 @@ Route::prefix('admin')->group(function (){
 Route::prefix('lecturer')->group(function (){
 
     Route::middleware(['guest'])->group(function (){
-        Route::get('/get/login', [Lecturer::class, 'getLogin'])->name('lecture.get.login');
-        Route::post('/post/login', [Lecturer::class, 'postLogin'])->name('lecture.post.login');
+        Route::get('/get/login', [LecturerController::class, 'LectureGetLogin'])->name('lecture.get.login');
+        Route::post('/post/login', [LecturerController::class, 'LecturePostLogin'])->name('lecture.post.login');
 
     });
     Route::middleware(['auth:admin'])->group(function (){
-        Route::get('dashboard', [Lecturer::class, 'dashboard'])->name('lecture.dashboard');
-        Route::get('/logout', [Lecturer::class, 'logout'])->name('lecture.logout');
+        Route::get('dashboard', [LecturerController::class, 'dashboard'])->name('lecture.dashboard');
+        Route::get('/logout', [LecturerController::class, 'logout'])->name('lecture.logout');
 
 
     });

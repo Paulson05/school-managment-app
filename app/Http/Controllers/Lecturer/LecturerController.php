@@ -18,14 +18,14 @@ class LecturerController extends Controller
 
         return view('backend.lecturer.pages.dashboard');
     }
-    public function getLogin(){
+    public function LectureGetLogin(){
 
         return view('backend.lecturer.auth.login');
     }
 
 
 
-    public function postLogin(Request $request){
+    public function LecturePostLogin(Request $request){
 
         $cred = $request->only('email', 'password');
 

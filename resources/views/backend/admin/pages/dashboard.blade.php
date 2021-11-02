@@ -72,7 +72,7 @@
             <h1 class="text-success">Investment plan</h1>
             <div class="card-body row pricing-block">
                 @php
-                $plans = \App\Models\Investmentplan::all();
+                $plans = \App\Models\Admin::all();
                 @endphp
                 @foreach($plans as $plan)
                 <div class="col-lg-3 col-md-6">
