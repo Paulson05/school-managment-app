@@ -1,5 +1,5 @@
 @extends('backend.admin.template.master')
-@section('title', '|dashboard')
+@section('title', '|admin|dashboard')
 @section('body')
 <div class="container-fluid">
     <div class="page-title">

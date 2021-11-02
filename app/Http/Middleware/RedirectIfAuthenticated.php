@@ -35,6 +35,7 @@ class RedirectIfAuthenticated
                 if ($guard === 'lecturer'){
                     return redirect()->route('lecture.dashboard');
                 }
+                return redirect()->route('user.home');
             }
         }
         return $next($request);

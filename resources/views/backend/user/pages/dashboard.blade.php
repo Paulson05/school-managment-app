@@ -1,10 +1,11 @@
-@extends('backend.user.template.master')
+@extends('backend.admin.template.master')
+@section('title', '|user|dashboard')
 @section('body')
 <div class="container-fluid">
     <div class="page-title">
         <div class="row">
             <div class="col-6">
-                <h3>Balances</h3>
+                <h3>General</h3>
             </div>
             <div class="col-6">
                 <ol class="breadcrumb">
@@ -24,7 +25,7 @@
                 <div class="bg-primary b-r-4 card-body">
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="database"></i></div>
-                        <div class="media-body"><span class="m-0">Wallet</span>
+                        <div class="media-body"><span class="m-0">Earnings</span>
                             <h4 class="mb-0 counter">6659</h4><i class="icon-bg" data-feather="database"></i>
                         </div>
                     </div>
@@ -36,7 +37,7 @@
                 <div class="bg-secondary b-r-4 card-body">
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-                        <div class="media-body"><span class="m-0">Earnings</span>
+                        <div class="media-body"><span class="m-0">Products</span>
                             <h4 class="mb-0 counter">9856</h4><i class="icon-bg" data-feather="shopping-bag"></i>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                 <div class="bg-primary b-r-4 card-body">
                     <div class="media static-top-widget">
                         <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
-                        <div class="media-body"><span class="m-0">Referrals Bonus</span>
+                        <div class="media-body"><span class="m-0">Messages</span>
                             <h4 class="mb-0 counter">893</h4><i class="icon-bg" data-feather="message-circle"></i>
                         </div>
                     </div>
@@ -71,7 +72,7 @@
             <h1 class="text-success">Investment plan</h1>
             <div class="card-body row pricing-block">
                 @php
-                $plans = \App\Models\Investmentplan::all();
+                $plans = \App\Models\Admin::all();
                 @endphp
                 @foreach($plans as $plan)
                 <div class="col-lg-3 col-md-6">

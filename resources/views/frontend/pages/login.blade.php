@@ -10,10 +10,11 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="well">
-                                        <form id="loginForm" method="POST" action="https://demo.web3canvas.com/login/" novalidate="novalidate">
+                                        <form id="loginForm" method="POST" action="{{route('user.postlogin')}}" >
+                                            @csrf
                                             <div class="form-group">
                                                 <label for="username" class="control-label">Username</label>
-                                                <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                                <input type="email" class="form-control" id="username" name="email" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
                                                 <span class="help-block"></span>
                                             </div>
                                             <div class="form-group">

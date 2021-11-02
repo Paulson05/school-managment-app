@@ -56,13 +56,15 @@ class userController extends Controller
     public function postLogin(Request $request){
 
 //        Alert::success('Success Title', 'Success Message');
+        $cred = $request->only('email', 'password');
 
-        if (!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))){
-
-            return redirect()->back()->with('info', 'could not sign you in with those details');
+        if(Auth::guard('web')->attempt($cred)){
+            return redirect()->route('user.home');
+        }else{
+            return  redirect()->route('user.getlogin');
         }
 
-        return redirect()->route('user.index')->with('danger', 'you are successfully signed in!');
+
 
     }
 

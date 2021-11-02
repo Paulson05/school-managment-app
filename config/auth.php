@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use App\Models\lecturer;
+use App\Models\User;
 
 return [
 
@@ -18,7 +19,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'investors',
+        'passwords' => 'users',
     ],
     'admin' =>[
         'driver'=> 'eloquent',
@@ -48,7 +49,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'investors',
+            'provider' => 'users',
         ],
         'admin' => [
             'driver' => 'session',
@@ -61,7 +62,7 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'investors',
+            'provider' => 'users',
             'hash' => false,
         ],
     ],
@@ -84,9 +85,9 @@ return [
     */
 
     'providers' => [
-        'investors' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => User::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
@@ -118,8 +119,8 @@ return [
     */
 
     'passwords' => [
-        'investors' => [
-            'provider' => 'investors',
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

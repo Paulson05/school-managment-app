@@ -35,7 +35,7 @@ Route::prefix('user')->group(function (){
 
     });
     Route::middleware(['auth:web'])->group(function (){
-        Route::get('/homepage', [UserController::class, 'homepage'])->name('user.home');
+        Route::get('/homepage', [UserController::class, 'index'])->name('user.home');
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
 });
@@ -71,4 +71,4 @@ Route::prefix('lecturer')->group(function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
