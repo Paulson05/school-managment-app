@@ -92,6 +92,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
             </li>
+            <li class="nav-item">
+                <a  class="nav-link btn btn-outline-success" href="{{route('user.getregister')}}">Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-success" href="{{route('user.getlogin')}}">Login</a>
+            </li>
         </ul>
     </div>
 </nav>

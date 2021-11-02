@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Admin;
+use App\Models\lecturer;
+
 return [
 
     /*
@@ -15,9 +18,16 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'investors',
     ],
-
+    'admin' =>[
+        'driver'=> 'eloquent',
+        'model' => Admin::class,
+    ],
+    'lecturer' =>[
+        'driver'=> 'eloquent',
+        'model' => Lecturer::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -28,22 +38,30 @@ return [
     | here which uses session storage and the Eloquent user provider.
     |
     | All authentication drivers have a user provider. This defines how the
-    | users are actually retrieved out of your database or other storage
+    | investors' are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
-    | Supported: "session", "token"
+    | Supported: "session"
     |
     */
 
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'investors',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'lecturer' => [
+            'driver' => 'session',
+            'provider' => 'lecturers',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'investors',
             'hash' => false,
         ],
     ],
@@ -54,7 +72,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | All authentication drivers have a user provider. This defines how the
-    | users are actually retrieved out of your database or other storage
+    | investors' are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
     | If you have multiple user tables or models you may configure multiple
@@ -66,11 +84,18 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'investors' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Admin::class,
+        ],
+        'lecturers' => [
+            'driver' => 'eloquent',
+            'model' =>Lecturer::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -93,11 +118,19 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'investors' => [
+            'provider' => 'investors',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'admins' =>[
+            'driver'=> 'eloquent',
+            'model' => Admin::class,
+        ],
+        'lecturers' =>[
+            'driver'=> 'eloquent',
+            'model' => Lecturer::class,
         ],
     ],
 
