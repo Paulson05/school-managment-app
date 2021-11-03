@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user\auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\SignUpRequest;
+use App\Models\User;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,15 +43,13 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SignUpRequest $request)
+    public function PostRegister(Request $request)
     {
 
-        $rand = rand(10000000,99999999);
-        $array = collect($request->validated())->forget(['confirmed_password'])
-            ->put('password', bcrypt($request->password))
-            ->put('identification_number',$rand)->all();
-        Users::create($array);
-      return  redirect()->route('home.login');
+        $array=collect($request->only(['last_name', 'first_name', 'middle_name', 'username',   'phone_number', 'number', 'full_number','gender','email','age','department_id','faculty_id','State_of_origin','lga', 'address' ]))->put('password',bcrypt($request->password))->all();
+        User::create($array);
+
+      return  redirect()->route('user.home');
     }
 
     public function postLogin(Request $request){

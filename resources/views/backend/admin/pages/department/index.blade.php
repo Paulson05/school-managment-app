@@ -59,6 +59,12 @@
                                                                     <input class="form-control" id="exampleFormControlInput1" name="name" type="text" placeholder="faculty">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">Short_code</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="short_code" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
 
                                                             <div class="text-left">
                                                                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -94,6 +100,7 @@
                             <tr>
                                 <th>S/N</th>
                                 <th>Dept name</th>
+                                <th>Short_code</th>
                                 <th>faculty</th>
                                 <th class="disabled-sorting text-right">Actions</th>
                             </tr>
@@ -106,6 +113,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$dept->name}}</td>
+                                <td>{{$dept->short_code}}</td>
                                 <td>{{$dept->faculty->name}}</td>
                                 <td>
                                     <button type="button"   class="delete_post btn btn-primary btn-sm" ><i class="fa fa-trash"></i></button>

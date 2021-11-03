@@ -39,7 +39,7 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $post =   Department::create(collect($request->only(['name', 'faculty_id']))->all());
+        $post =   Department::create(collect($request->only(['name', 'faculty_id', 'short_code']))->all());
 
         $post->save();
         return redirect()->back();
