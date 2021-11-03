@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\department;
+use App\Http\Controllers\Controller;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 
-class DepartmentController extends Controller
+class FacultyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $falcuties = Faculty::all();
+        return view('backend.admin.pages.faculty.index', ['falcuties' => $falcuties]);
     }
 
     /**
@@ -35,16 +37,19 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $post = Faculty::create(collect($request->only(['name']))->all());
+        $post->save();
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\department  $department
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(department $department)
+    public function show($id)
     {
         //
     }
@@ -52,10 +57,10 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\department  $department
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(department $department)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +69,10 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\department  $department
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, department $department)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +80,10 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\department  $department
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(department $department)
+    public function destroy($id)
     {
         //
     }

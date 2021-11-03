@@ -55,7 +55,7 @@ class adminController extends Controller
 
     public function administrator(){
         $users = Admin::all();
-        return view('backend.admin.pages.administrator.index', ['users'=> $users]);
+        return view('backend.admin.pages.faculty.index', ['users'=> $users]);
     }
 
 

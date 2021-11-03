@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Investmentplan;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
-class InvestmentPlanController extends Controller
+class LevelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class InvestmentPlanController extends Controller
      */
     public function index()
     {
-        $plans = Investmentplan::all();
-        return view ('backend.admin.pages.investmentplan.index', ['plans' => $plans]);
+        $levels = Level::all();
+        return view('backend.admin.pages.level.index', ['levels' => $levels]);
     }
 
     /**
@@ -37,12 +37,10 @@ class InvestmentPlanController extends Controller
      */
     public function store(Request $request)
     {
-
-        $plan = Investmentplan::create(collect($request->only(['investment_plane','min_investment','max_investment','profit', 'duration']))->all());
-        $status =    $plan->save();
-       return redirect()->back();
+        $post = Level::create(collect($request->only(['level']))->all());
+        $post->save();
+        return redirect()->back();
     }
-
     /**
      * Display the specified resource.
      *

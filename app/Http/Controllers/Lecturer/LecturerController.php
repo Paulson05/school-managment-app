@@ -47,7 +47,7 @@ class LecturerController extends Controller
 
     public function administrator(){
         $users = Admin::all();
-        return view('backend.lecturer.pages.administrator.index', ['users'=> $users]);
+        return view('backend.lecturer.pages.faculty.index', ['users'=> $users]);
     }
 
 

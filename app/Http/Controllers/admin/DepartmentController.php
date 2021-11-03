@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\Level;
+use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 
-class LevelController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,9 @@ class LevelController extends Controller
      */
     public function index()
     {
-        //
+        $faculties = Faculty::all();
+        $depts = Department::all();
+        return view('backend.admin.pages.department.index', ['faculties' => $faculties,  'depts'=> $depts]);
     }
 
     /**
@@ -35,16 +39,19 @@ class LevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post =   Department::create(collect($request->only(['name', 'faculty_id']))->all());
+
+        $post->save();
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Level  $level
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Level $level)
+    public function show($id)
     {
         //
     }
@@ -52,10 +59,10 @@ class LevelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Level  $level
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Level $level)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +71,10 @@ class LevelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Level  $level
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Level $level)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +82,10 @@ class LevelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Level  $level
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Level $level)
+    public function destroy($id)
     {
         //
     }
