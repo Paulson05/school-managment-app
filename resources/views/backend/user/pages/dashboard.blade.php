@@ -1,4 +1,4 @@
-@extends('backend.admin.template.master')
+@extends('backend.user.template.master')
 @section('title', '|user|dashboard')
 @section('body')
 <div class="container-fluid">
@@ -71,24 +71,21 @@
         <div class="card">
             <h1 class="text-success">Investment plan</h1>
             <div class="card-body row pricing-block">
-                @php
-                $plans = \App\Models\Admin::all();
-                @endphp
-                @foreach($plans as $plan)
+
                 <div class="col-lg-3 col-md-6">
                     <div class="pricingtable">
                         <div class="pricingtable-header">
-                            <h3 class="title">{{$plan->investment_plane}}</h3>
+                            <h3 class="title"></h3>
                         </div>
-                        <div class="price-value"><span class="currency">$</span><span class="amount">{{$plan->profit}}</span><span class="duration">profit</span></div>
+                        <div class="price-value"><span class="currency">$</span><span class="amount"></span><span class="duration">profit</span></div>
                         <ul class="pricing-content">
-                            <li>{{$plan->max_investment}}</li>
-                            <li>{{$plan->min_investment}}</li>
+                            <li></li>
+                            <li></li>
                         </ul>
-                        <div class="pricingtable-signup"><button class="btn btn-primary btn-lg" ><span class="text-dark p-2">Duration</span>{{$plan->duration}} </button></div>
+                        <div class="pricingtable-signup"><button class="btn btn-primary btn-lg" ><span class="text-dark p-2">Duration</span></button></div>
                     </div>
                 </div>
-                @endforeach
+
             </div>
         </div>
 

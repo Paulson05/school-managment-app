@@ -13,18 +13,34 @@
                         <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                     </li>
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="home"> </i><span>Dashboard</span></a></li>
 
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="file-manager.html"><i data-feather="git-pull-request"> </i><span>User profile</span></a></li>
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('investment-packages.index')}}"><i data-feather="monitor"> </i><span>Investment plan</span></a></li>
-
-                    <li class="sidebar-list">
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>My profile</span></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="user-profile.html">Academic Result</a></li>
+                            <li><a href="edit-profile.html">Course Registration</a></li>
+                            <li><a href="user-cards.html">Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="credit-card"></i><span>Payments</span></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="user-profile.html">Acceptance Fee</a></li>
+                            <li><a href="user-profile.html">Payment Transaction</a></li>
+                            <li><a href="edit-profile.html">Pay School Fees</a></li>
+                            <li><a href="user-cards.html">Hostel Fee</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file"></i><span>Printout</span></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="user-profile.html">Users Profile</a></li>
+                            <li><a href="edit-profile.html">Users Edit</a></li>
+                            <li><a href="user-cards.html">Users Cards</a></li>
+                        </ul>
                     </li>
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="bookmark.html"><i data-feather="heart"> </i><span>Transactions</span></a></li>
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="contacts.html"><i data-feather="list"> </i><span>Deposite</span></a></li>
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="task.html"><i data-feather="check-square"> </i><span>Earnings</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="bookmark.html"><i data-feather="book"> </i><span>Transactions</span></a></li>
+
 
                 </ul>
             </div>
