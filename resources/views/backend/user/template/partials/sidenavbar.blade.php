@@ -19,7 +19,7 @@
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>My profile</span></a>
                         <ul class="sidebar-submenu">
                             <li><a href="user-profile.html">Academic Result</a></li>
-                            <li><a href="edit-profile.html">Course Registration</a></li>
+                            <li><a href="{{route('user.courseRegitration')}}">Course Registration</a></li>
                             <li><a href="user-cards.html">Change Password</a></li>
                         </ul>
                     </li>

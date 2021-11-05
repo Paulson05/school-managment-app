@@ -27,6 +27,10 @@ class userController extends Controller
     public function getLogin(){
         return view('frontend.pages.login');
     }
+    public function courseRegistration(){
+        return view ('backend.user.pages.courseRegistration');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
