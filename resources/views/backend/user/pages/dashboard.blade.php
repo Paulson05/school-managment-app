@@ -105,13 +105,16 @@
 <!--                            </div>-->
                             <div  class="col-md-12">
                                 <div class="card-body data-tables">
+                                    <div class="left">
+                                        <button class="btn btn-secondary">print</button>
+                                    </div>
                                     <h4>Student Information</h4>
                                     <form method="POST" action="" id="myForm">
                                         @csrf
                                         <table class="table-sm table-bordered" width="100%">
                                             <thead>
                                             <tr>
-                                                <th class="bold">Matri No</th>
+                                                <th class="bold">Matric No</th>
                                                 <th class="italic">{{auth()->user()->full_number}}</th>
                                                 <th width="7%" class="bold">session 2020/2021</th>
                                                 <th width="10%" class="bold">Full name</th>
