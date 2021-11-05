@@ -47,7 +47,7 @@ Route::prefix('user')->group(function (){
 
     });
     Route::middleware(['auth:web'])->group(function (){
-        Route::get('/homepage', [UserController::class, 'index'])->name('');
+        Route::get('/homepage', [UserController::class, 'index'])->name('user.home');
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
 });

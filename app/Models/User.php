@@ -17,11 +17,22 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $guarded = [];
+    public function getName()
+    {
+        if ($this->first_name && $this->last_name) {
+            return "{$this->first_name} {$this->last_name}";
+        }
 
-    public function shortCode(){
+        if ($this->first_name) {
+            return $this->first_name;
+        }
+    }
+            public function shortCode(){
         return  $this->belongsTo(Department::class, 'department_id' );
     }
-
+  public function faculty(){
+        return $this->belongsTo(Faculty::class, 'faculty_id');
+  }
 
 
     public static function boot()
