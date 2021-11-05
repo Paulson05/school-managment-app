@@ -15,7 +15,7 @@
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="monitor"> </i><span>investment plan</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="monitor"> </i><span>Course Registration</span></a></li>
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>faculty/department/level</span></a>
                         <ul class="sidebar-submenu">
@@ -25,7 +25,7 @@
 
                         </ul>
                     </li>
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="bookmark.html"><i data-feather="heart"> </i><span>Users deposite</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('semester.index')}}"><i data-feather="heart"> </i><span>Semester</span></a></li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="contacts.html"><i data-feather="list"> </i><span>User Withdrawals</span></a></li>
                     <li class="sidebar-main-title">
                     </li>

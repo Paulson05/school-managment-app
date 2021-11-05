@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\auth\adminController;
 use App\Http\Controllers\admin\DepartmentController;
 use App\Http\Controllers\admin\FacultyController;
 use App\Http\Controllers\admin\LevelController;
+use App\Http\Controllers\admin\SemesterController;
+use App\Http\Controllers\CourseRegistrationController;
 use App\Http\Controllers\Exam\QuestionsController;
 use App\Http\Controllers\Exam\QuizController;
 
@@ -18,12 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.pages.homepage');
-});
+})->name('frontend.homepage');
 Route::resource('quiz',QuizController::class)->except('index');
 Route::get('quizes/addQuestion/{id}', [QuizController::class, 'addQuestion'])->name('addquestion');
 Route::resource('question',QuestionsController::class)->except('destroy');
-Route::resource('department', DepartmentController::class)->except('create');
-Route::resource('faculty', FacultyController::class)->except('create');
 Route::resource('level', LevelController::class)->except('create');
 
 
@@ -49,7 +49,6 @@ Route::prefix('user')->group(function (){
     Route::middleware(['auth:web'])->group(function (){
         Route::get('/homepage', [UserController::class, 'index'])->name('user.home');
         Route::get('course/registrstion', [UserController::class, 'courseRegistration'])->name('user.courseRegitration');
-
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
 });
@@ -63,6 +62,10 @@ Route::prefix('admin')->group(function (){
     });
     Route::middleware(['auth:admin'])->group(function (){
         Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::resource('department', DepartmentController::class)->except('create');
+        Route::resource('faculty', FacultyController::class)->except('create');
+        Route::resource('level', LevelController::class)->except('create');
+        Route::resource('semester', SemesterController::class)->except('create');
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 
@@ -75,7 +78,7 @@ Route::prefix('lecturer')->group(function (){
         Route::post('/post/login', [LecturerController::class, 'LecturePostLogin'])->name('lecture.post.login');
 
     });
-    Route::middleware(['auth:admin'])->group(function (){
+    Route::middleware(['auth:lecturer'])->group(function (){
         Route::get('dashboard', [LecturerController::class, 'dashboard'])->name('lecture.dashboard');
         Route::get('/logout', [LecturerController::class, 'logout'])->name('lecture.logout');
 

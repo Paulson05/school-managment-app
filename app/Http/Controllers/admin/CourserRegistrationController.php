@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\CourseRegistration;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CourseRegistrationController extends Controller
+class CourserRegistrationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class CourseRegistrationController extends Controller
      */
     public function index()
     {
-        //
+        $falcuties = Faculty::all();
+        return view('backend.admin.pages.faculty.index', ['falcuties' => $falcuties]);
     }
 
     /**
@@ -35,16 +36,19 @@ class CourseRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $post = Faculty::create(collect($request->only(['name']))->all());
+        $post->save();
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CourseRegistration  $courseRegistration
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CourseRegistration $courseRegistration)
+    public function show($id)
     {
         //
     }
@@ -52,10 +56,10 @@ class CourseRegistrationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CourseRegistration  $courseRegistration
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseRegistration $courseRegistration)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +68,10 @@ class CourseRegistrationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CourseRegistration  $courseRegistration
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseRegistration $courseRegistration)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +79,10 @@ class CourseRegistrationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CourseRegistration  $courseRegistration
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseRegistration $courseRegistration)
+    public function destroy($id)
     {
         //
     }

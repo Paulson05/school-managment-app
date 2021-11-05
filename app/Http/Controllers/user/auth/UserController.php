@@ -73,7 +73,7 @@ class userController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('home.page');
+        return redirect()->route('frontend.homepage');
     }
 
 
