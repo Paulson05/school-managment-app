@@ -26,7 +26,7 @@
                         </ul>
                     </li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('semester.index')}}"><i data-feather="heart"> </i><span>Semester</span></a></li>
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="contacts.html"><i data-feather="list"> </i><span>User Withdrawals</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('result.index')}}"><i data-feather="list"> </i><span>Result</span></a></li>
                     <li class="sidebar-main-title">
                     </li>
 

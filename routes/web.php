@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\auth\adminController;
 
 use App\Http\Controllers\admin\CourserRegistrationController;
 use App\Http\Controllers\admin\DepartmentController;
+use App\Http\Controllers\admin\ExamResultController;
 use App\Http\Controllers\admin\FacultyController;
 use App\Http\Controllers\admin\LevelController;
 use App\Http\Controllers\admin\SemesterController;
@@ -72,6 +73,8 @@ Route::prefix('admin')->group(function (){
         Route::resource('faculty', FacultyController::class)->except('create');
         Route::resource('level', LevelController::class)->except('create');
         Route::resource('semester', SemesterController::class)->except('create');
+        Route::resource('result', ExamResultController::class)->except('create');
+
         Route::resource('courseregistration', CourserRegistrationController::class)->except('create');
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
