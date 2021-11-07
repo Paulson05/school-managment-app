@@ -17,7 +17,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myLargeModalLabel">plan</h4>
+
                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -30,9 +30,9 @@
                                         <div class="col-sm-12">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>create investment plan</h5>
+                                                    <h5>create course</h5>
                                                 </div>
-                                                <form class="form theme-form" action="{{route('department.store')}}" method="post">
+                                                <form class="form theme-form" action="{{route('courseregistration.store')}}" method="post">
                                                     @csrf
                                                     <div class="card-body">
                                                         <div class="row">
@@ -60,7 +60,7 @@
                                                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                                                     <div class="mb-3">
                                                                         <label class="form-label" for="exampleFormControlInput1">Department</label>
-                                                                        <select name="faculty_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                                                        <select name="departments_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
                                                                             @php
                                                                             $depts = \App\Models\Department::all()
                                                                             @endphp
@@ -80,15 +80,13 @@
                                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="exampleFormControlInput1">Level</label>
-                                                                    <select name="faculty_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
-                                                                        @php
-                                                                        $levels = \App\Models\Level::all()
-                                                                        @endphp
+                                                                    <select name="levels_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
 
-                                                                        <option>--select faculty--</option>
+
+                                                                        <option>--select level--</option>
 
                                                                         @forelse($levels as $level)
-                                                                        <option value="{{$level->id}}">{{$level->name}}</option>
+                                                                        <option value="{{$level->id}}" class="text-success">{{$level->level}}level</option>
                                                                         @empty
                                                                         <option value="">no  level</option>
 
@@ -99,8 +97,40 @@
                                                             </div>
                                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="exampleFormControlInput1">course</label>
-                                                                    <input class="form-control" id="exampleFormControlInput1" name="short_code" type="text" placeholder="faculty">
+                                                                    <label class="form-label" for="exampleFormControlInput1">Semester</label>
+                                                                    <select name="semester_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                                                        @php
+                                                                        $semester= \App\Models\Semester::all()
+                                                                        @endphp
+
+                                                                        <option>--select semester--</option>
+
+                                                                        @forelse($semester as $level)
+                                                                        <option value="{{$level->id}}" class="text-danger">{{$level->term}}</option>
+                                                                        @empty
+                                                                        <option value="">no  semester</option>
+
+                                                                        @endforelse
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course title</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_title" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course code</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_code" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course unit</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_unit" type="text" placeholder="faculty">
                                                                 </div>
                                                             </div>
 

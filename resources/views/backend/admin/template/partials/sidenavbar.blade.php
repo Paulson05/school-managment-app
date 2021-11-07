@@ -15,7 +15,7 @@
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
 
-                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="monitor"> </i><span>Course Registration</span></a></li>
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="{{route('courseregistration.index')}}"><i data-feather="monitor"> </i><span>Course Registration</span></a></li>
 
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>faculty/department/level</span></a>
                         <ul class="sidebar-submenu">

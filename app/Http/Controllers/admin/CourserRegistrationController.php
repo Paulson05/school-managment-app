@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourserRegistration;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
 class CourserRegistrationController extends Controller
@@ -14,8 +16,10 @@ class CourserRegistrationController extends Controller
      */
     public function index()
     {
-        $falcuties = Faculty::all();
-        return view('backend.admin.pages.faculty.index', ['falcuties' => $falcuties]);
+        $levels = Level::all();
+        $falcuties = CourserRegistration::all();
+
+        return view('backend.admin.pages.course_reg.index', ['falcuties' => $falcuties, 'levels'=> $levels]);
     }
 
     /**
@@ -37,7 +41,7 @@ class CourserRegistrationController extends Controller
     public function store(Request $request)
     {
 
-        $post = Faculty::create(collect($request->only(['name']))->all());
+        $post = CourserRegistration::create(collect($request->only(['departments_id','levels_id','semester_id','course_title','course_code','course_unit']))->all());
         $post->save();
         return redirect()->back();
     }

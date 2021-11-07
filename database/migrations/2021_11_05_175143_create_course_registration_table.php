@@ -17,7 +17,7 @@ class CreateCourseRegistrationTable extends Migration
             $table->increments('id');
             $table->integer('departments_id');
             $table->integer('levels_id');
-            $table->integer('semester');
+            $table->integer('semester_id');
             $table->string('course_title');
             $table->string('course_code');
             $table->string('course_unit');

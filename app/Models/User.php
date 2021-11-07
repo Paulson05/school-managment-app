@@ -27,8 +27,18 @@ class User extends Authenticatable
             return $this->first_name;
         }
     }
+    public function courseList(){
+
+        if ($this->departments_id && $this->semester_id && $this->levels_id) {
+            return "{$this->departments_id} {$this->semester_id} {$this->levels_id}";
+        }
+
+        if ($this->departments_id) {
+            return $this->departments_id;
+        }
+    }
             public function shortCode(){
-        return  $this->belongsTo(Department::class, 'department_id' );
+        return  $this->belongsTo(Department::class, 'departments_id' );
     }
   public function faculty(){
         return $this->belongsTo(Faculty::class, 'faculty_id');

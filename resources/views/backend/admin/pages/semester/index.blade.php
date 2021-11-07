@@ -75,7 +75,7 @@
                         <thead>
                         <tr>
                             <th>S/N</th>
-                            <th>level</th>
+                            <th>semester</th>
                             <th class="disabled-sorting text-right">Actions</th>
                         </tr>
                         </thead>
@@ -86,7 +86,7 @@
                             @foreach($semesters as $level)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>year{{$level->level}}</td>
+                            <td>{{$level->term}}</td>
 
                             <td>
                                 <button type="button"   class="delete_post btn btn-primary btn-sm" ><i class="fa fa-trash"></i></button>

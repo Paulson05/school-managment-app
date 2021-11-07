@@ -23,7 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('gender');
             $table->string('age');
-            $table->bigInteger('department_id');
+            $table->bigInteger('departments_id');
+            $table->bigInteger('semester_id');
+            $table->bigInteger('levels_id');
             $table->bigInteger('faculty_id');
             $table->string('State_of_origin');
             $table->string('lga');

@@ -95,30 +95,23 @@
                                         <table class="table-sm table-bordered" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Category</th>
-                                                <th>Product Name</th>
-                                                <th width="7%">Pcs/kg</th>
-                                                <th width="10%">Unit Price</th>
-                                                <th>Description</th>
-                                                <th width="10%">Total Price</th>
-                                                <th>Action</th>
+                                                <th>Course title</th>
+                                                <th>Course code</th>
+                                                <th width="7%">course unit</th>
+
                                             </tr>
                                             </thead>
                                             <tbody id="addRow" class="addRow">
 
                                             </tbody>
                                             <tbody>
-                                            @php
-                                            $users = \App\Models\User::all();
-                                            @endphp
-                                            @forelse($users as $user)
+
+                                            @forelse($posts as $user)
                                             <tr>
-                                                <td colspan="5">
-                                                {{$user->first_name}}
-                                                <td>
-                                                    <input type="text" name="estimate_amount" value="0" id="estimate_amount" class="form-control form-control-sm text-right estimate_amount" readonly style = "background-color: darkgreen;">
-                                                </td>
-                                                <td> {{$user->first_name}}</td>
+                                                <td>{{$user->course_title}}</td>
+                                                <td> {{$user->course_code}}</td>
+                                                <td> {{$user->course_unit}}</td>
+
                                             </tr>
                                             @empty
                                             <p>no data</p>
