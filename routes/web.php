@@ -50,6 +50,11 @@ Route::prefix('user')->group(function (){
     Route::middleware(['auth:web'])->group(function (){
         Route::get('/homepage', [UserController::class, 'index'])->name('user.home');
         Route::get('course/registrstion', [UserController::class, 'courseRegistration'])->name('user.courseRegitration');
+        Route::get('/acceptance', [UserController::class, 'acceptance'])->name('user.acceptance');
+        Route::get('/payment', [UserController::class, 'payment'])->name('user.payment');
+        Route::get('/schoolfees', [UserController::class, 'schoolfees'])->name('user.schoolfees');
+
+
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
 });

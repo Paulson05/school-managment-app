@@ -25,10 +25,10 @@
                     </li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="credit-card"></i><span>Payments</span></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="user-profile.html">Acceptance Fee</a></li>
-                            <li><a href="user-profile.html">Payment Transaction</a></li>
-                            <li><a href="edit-profile.html">Pay School Fees</a></li>
-                            <li><a href="user-cards.html">Hostel Fee</a></li>
+                            <li><a href="{{route('user.acceptance')}}">Acceptance Fee</a></li>
+                            <li><a href="{{route('user.payment')}}">Payment Transaction</a></li>
+                            <li><a href="{{route('user.schoolfees')}}">Pay School Fees</a></li>
+                            <li><a href="">Hostel Fee</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file"></i><span>Printout</span></a>

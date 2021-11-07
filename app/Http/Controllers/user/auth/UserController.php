@@ -31,12 +31,23 @@ class userController extends Controller
     public function courseRegistration(){
 
 //        $posts = CourserRegistration::where('departments_id',auth()->user()->courseList())->get();
-        $posts = CourserRegistration::where('levels_id',auth()->user()->levels_id)->where('departments_id',auth()->user()->departments_id)->where('semester_id',auth()->user()->semester_id)->get();
+        $posts = CourserRegistration::where('levels_id',auth()->user()->levels_id)
+            ->where('departments_id',auth()->user()->departments_id)
+            ->where('semester_id',auth()->user()->semester_id)->get();
 
 //         dd($posts);
         return view ('backend.user.pages.courseRegistration', ['posts' => $posts]);
     }
+    public function acceptance(){
+        return view ('backend.user.pages.acceptance', );
+    }
 
+    public function payment(){
+        return view ('backend.user.pages.payment', );
+    }
+    public function schoolfees(){
+        return view ('backend.user.pages.schoolfees', );
+    }
     /**
      * Show the form for creating a new resource.
      *
