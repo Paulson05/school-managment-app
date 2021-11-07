@@ -107,7 +107,7 @@
                                             <tbody>
 
                                             @forelse($posts as $user)
-                                            <tr>
+                                            <tr class="text-capitalize">
                                                 <td>{{$user->course_title}}</td>
                                                 <td> {{$user->course_code}}</td>
                                                 <td> {{$user->course_unit}}</td>
