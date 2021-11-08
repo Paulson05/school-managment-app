@@ -41,11 +41,15 @@ class userController extends Controller
         return view ('backend.user.pages.courseRegistration', ['posts' => $posts]);
     }
     public function result(){
+        $courses = CourserRegistration::where('levels_id',auth()->user()->levels_id)
+            ->where('departments_id',auth()->user()->departments_id)
+            ->where('levels_id',auth()->user()->levels_id)
+            ->where('semester_id',auth()->user()->semester_id)->get();
         $posts = ExamResult::where('levels_id',auth()->user()->levels_id)
             ->where('semester_id',auth()->user()->semester_id)
-            ->where('users_id',auth()->user()->id)->get();
+            ->where('users_id',auth()->user()->id)->first();
 
-        return view ('backend.user.pages.result',['posts' => $posts] );
+        return view ('backend.user.pages.result',['posts' => $posts, 'courses' => $courses] );
     }
     public function acceptance(){
         return view ('backend.user.pages.acceptance', );
