@@ -105,8 +105,10 @@
 
                                             </tbody>
                                             <tbody>
-
-                                            @forelse($posts as $user)
+                                            @php
+                                            $levels = \App\Models\User::all()
+                                            @endphp
+                                            @forelse($levels as $user)
                                             <tr class="text-capitalize">
                                                 <td>{{$user->course_title}}</td>
                                                 <td> {{$user->course_code}}</td>

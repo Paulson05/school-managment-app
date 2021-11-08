@@ -15,6 +15,7 @@ use App\Http\Controllers\Exam\QuizController;
 
 use App\Http\Controllers\FrontEnd\ExamController;
 use App\Http\Controllers\Lecturer\LecturerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\user\auth\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -97,7 +98,9 @@ Route::prefix('lecturer')->group(function (){
 
     });
 });
-
+Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+Route::get('/getpayment', [PaymentController::class, 'getPayment'])->name('getpayment');
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
