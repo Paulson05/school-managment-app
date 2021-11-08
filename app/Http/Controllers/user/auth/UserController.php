@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user\auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\SignUpRequest;
 use App\Models\CourserRegistration;
+use App\Models\ExamResult;
 use App\Models\User;
 use App\Models\Users;
 use Illuminate\Http\Request;
@@ -33,10 +34,18 @@ class userController extends Controller
 //        $posts = CourserRegistration::where('departments_id',auth()->user()->courseList())->get();
         $posts = CourserRegistration::where('levels_id',auth()->user()->levels_id)
             ->where('departments_id',auth()->user()->departments_id)
+            ->where('levels_id',auth()->user()->levels_id)
             ->where('semester_id',auth()->user()->semester_id)->get();
 
 //         dd($posts);
         return view ('backend.user.pages.courseRegistration', ['posts' => $posts]);
+    }
+    public function result(){
+        $posts = ExamResult::where('levels_id',auth()->user()->levels_id)
+            ->where('semester_id',auth()->user()->semester_id)
+            ->where('users_id',auth()->user()->id)->get();
+
+        return view ('backend.user.pages.result',['posts' => $posts] );
     }
     public function acceptance(){
         return view ('backend.user.pages.acceptance', );

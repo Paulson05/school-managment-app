@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ExamResult;
 use Illuminate\Http\Request;
 
 class ExamResultController extends Controller
@@ -35,7 +36,10 @@ class ExamResultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $post = ExamResult::create(collect($request->only(['departments_id','levels_id','semester_id', 'faculty_id', 'full_number', 'users_id', 'course1','course2','course3','course4','course5','course6','course7','course8','course9','course10','course11']))->all());
+        $post->save();
+        return redirect()->back();
     }
 
     /**

@@ -54,6 +54,8 @@ Route::prefix('user')->group(function (){
         Route::get('/acceptance', [UserController::class, 'acceptance'])->name('user.acceptance');
         Route::get('/payment', [UserController::class, 'payment'])->name('user.payment');
         Route::get('/schoolfees', [UserController::class, 'schoolfees'])->name('user.schoolfees');
+        Route::get('/myresult', [UserController::class, 'result'])->name('user.result');
+
 
 
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');

@@ -157,7 +157,7 @@
                     </li>
                     <li>                         <span class="header-search"><i data-feather="search"></i></span></li>
                     <li class="onhover-dropdown">
-                        <div class="notification-box"><i data-feather="bell"> </i><span class="badge rounded-pill badge-secondary">4                                </span></div>
+                        <div class="notification-box"><i data-feather="bell"> </i><span class="badge rounded-pill badge-secondary">4          </span></div>
                         <ul class="notification-dropdown onhover-show-div">
                             <li><i data-feather="bell"></i>
                                 <h6 class="f-18 mb-0">Notitications</h6>
@@ -305,8 +305,8 @@
                     <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                     <li class="profile-nav onhover-dropdown p-0 me-0">
                         <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
-                            <div class="media-body"><span>Emay Walter</span>
-                                <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                            <div class="media-body"><span>{{auth()->user()->getName()}}</span>
+                                <p class="mb-0 font-roboto">Student<i class="middle fa fa-angle-down"></i></p>
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div">

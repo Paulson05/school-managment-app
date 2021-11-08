@@ -1,5 +1,5 @@
 @extends('backend.admin.template.master')
-@section('title', '| course | registrstion ')
+@section('title', '|result')
 @section('body')
 <div class="content">
     <div class="container-fluid">
@@ -32,7 +32,7 @@
                                                 <div class="card-header">
                                                     <h5>create course</h5>
                                                 </div>
-                                                <form class="form theme-form" action="{{route('courseregistration.store')}}" method="post">
+                                                <form class="form theme-form" action="{{route('result.store')}}" method="post">
                                                     @csrf
                                                     <div class="card-body">
                                                         <div class="row">
@@ -82,7 +82,9 @@
                                                                     <label class="form-label" for="exampleFormControlInput1">Level</label>
                                                                     <select name="levels_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
 
-
+                                                                        @php
+                                                                        $levels = \App\Models\Level::all()
+                                                                        @endphp
                                                                         <option>--select level--</option>
 
                                                                         @forelse($levels as $level)
@@ -117,22 +119,112 @@
                                                             </div>
                                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="exampleFormControlInput1">course title</label>
-                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_title" type="text" placeholder="faculty">
+                                                                    <label class="form-label" for="exampleFormControlInput1">Student name</label>
+                                                                    <select name="users_id" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+
+                                                                        @php
+                                                                        $levels = \App\Models\User::all()
+                                                                        @endphp
+                                                                        <option>--select level--</option>
+
+                                                                        @forelse($levels as $level)
+                                                                        <option value="{{$level->id}}" class="text-success">{{$level->getName()}}</option>
+                                                                        @empty
+                                                                        <option value="">no  student</option>
+
+                                                                        @endforelse
+                                                                    </select>
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="exampleFormControlInput1">course code</label>
-                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_code" type="text" placeholder="faculty">
+                                                                    <label class="form-label" for="exampleFormControlInput1">Student number</label>
+                                                                    <select name="full_number" id="faculty_id" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                                                        @php
+                                                                        $semester= \App\Models\User::all()
+                                                                        @endphp
+
+                                                                        <option>--select semester--</option>
+
+                                                                        @forelse($semester as $level)
+                                                                        <option value="{{$level->id}}" class="text-danger">{{$level->full_number}}</option>
+                                                                        @empty
+                                                                        <option value="">no  semester</option>
+
+                                                                        @endforelse
+                                                                    </select>
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-6 col-md-6">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="exampleFormControlInput1">course unit</label>
-                                                                    <input class="form-control" id="exampleFormControlInput1" name="course_unit" type="text" placeholder="faculty">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 1</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course1" type="text" placeholder="faculty">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 2</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course2" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 3</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course3" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 4</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course4" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 5</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course5" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 6</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course6" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 7</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course7" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 8</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course8" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 9</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course9" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 10</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course10" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="exampleFormControlInput1">course 11</label>
+                                                                    <input class="form-control" id="exampleFormControlInput1" name="course11" type="text" placeholder="faculty">
+                                                                </div>
+                                                            </div>
+
+
 
                                                             <div class="text-left">
                                                                 <button class="btn btn-primary" type="submit">Submit</button>
