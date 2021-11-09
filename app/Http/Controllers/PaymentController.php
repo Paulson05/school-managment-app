@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use Paystack;
 class PaymentController extends Controller
 {
     public function getPayment(){
@@ -37,7 +37,7 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
 
-//        dd($paymentDetails);
+        dd($paymentDetails);
         $payment = new Payment();
 
         $payment->email = $paymentDetails['data']['customer']['email'];

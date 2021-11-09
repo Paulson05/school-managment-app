@@ -87,53 +87,37 @@
                                     </form>
                                 </div>
                             </div>
-                            <div  class="col-md-12 mt-0">
-                                <div class="card-body data-tables">
-                                    <h5>Course list</h5>
-                                    <form method="POST" action="" id="myForm">
-                                        @csrf
-                                        <table class="table-sm table-bordered" width="100%">
-                                            <thead>
-                                            <tr>
-                                                <th>Course title</th>
-                                                <th>Course code</th>
-                                                <th width="7%">course unit</th>
+                            <div class="card-footer text-start">
+                                <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                                    @csrf
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8 col-md-offset-2">
 
-                                            </tr>
-                                            </thead>
-                                            <tbody id="addRow" class="addRow">
+                                            <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
+                                            <input type="hidden" name="orderID" value="345">
+                                            <input type="hidden" name="amount" value="100"> {{-- required in kobo --}}
+                                            <input type="hidden" name="quantity" value="1">
+                                            <input type="hidden" name="currency" value="NGN">
+                                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
 
-                                            </tbody>
-                                            <tbody>
-                                            @php
-                                            $levels = \App\Models\User::all()
-                                            @endphp
-                                            @forelse($levels as $user)
-                                            <tr class="text-capitalize">
-                                                <td>{{$user->course_title}}</td>
-                                                <td> {{$user->course_code}}</td>
-                                                <td> {{$user->course_unit}}</td>
 
-                                            </tr>
-                                            @empty
-                                            <p>no data</p>
-                                            @endforelse
-                                            </tbody>
-
-                                        </table>
-                                        <br>
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" type="submit" id="storeButton">purchase store</button>
+                                            <p>
+                                                <button class="btn btn-success btn-lg mt-2" type="submit" value="Pay Now!">
+                                                    <i class="fa fa-plus-circle fa-lg"></i> Pay Acceptance fee
+                                                </button>
+<!--                                                <a href="{{route('getpayment')}}" class="btn btn-primary btn-lg mt-2" type="submit" value="Pay Now!">-->
+<!--                                                    <i class="fa fa-plus-circle fa-lg"></i> investment!-->
+<!--                                                </a>-->
+                                            </p>
                                         </div>
+                                    </div>
+                                </form>
 
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <button class="btn btn-primary" type="submit">Update Profile</button>
-                    </div>
+
                 </form>
             </div>
         </div>
