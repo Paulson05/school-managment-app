@@ -91,25 +91,66 @@
                                 <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
                                     @csrf
                                     <div class="row justify-content-center">
-                                        <div class="col-md-8 col-md-offset-2">
 
-                                            <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
-                                            <input type="hidden" name="orderID" value="345">
-                                            <input type="hidden" name="amount" value="100"> {{-- required in kobo --}}
-                                            <input type="hidden" name="quantity" value="1">
-                                            <input type="hidden" name="currency" value="NGN">
-                                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
-                                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                                        <div class="col-xl-12-0">
+                                            <div class="login-card">
+                                                <div>
 
+                                                    <div class="login-main">
+                                                        <form id="paymentForm" class="theme-form">
+                                                            <h4>student payment detials</h4>
+                                                            <div class="form-group">
+                                                                <label class="col-form-label pt-0">Your Name</label>
+                                                                <div class="row g-2">
+                                                                    <div class="col-6">
+                                                                        <input class="form-control" disabled="" type="text"  id="first-name" placeholder="{{auth()->user()->first_name}}">
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <input class="form-control" disabled="" type="text"  id="last-name" placeholder="{{auth()->user()->last_name}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-form-label">Email Address</label>
+                                                                <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
+<!--                                                                <input type="hidden" name="users_id" value="{{auth()->user()->id}}"> {{-- required --}}-->
+                                                            </div>
 
-                                            <p>
-                                                <button class="btn btn-success btn-lg mt-2" type="submit" value="Pay Now!">
-                                                    <i class="fa fa-plus-circle fa-lg"></i> Pay Acceptance fee
-                                                </button>
-<!--                                                <a href="{{route('getpayment')}}" class="btn btn-primary btn-lg mt-2" type="submit" value="Pay Now!">-->
-<!--                                                    <i class="fa fa-plus-circle fa-lg"></i> investment!-->
-<!--                                                </a>-->
-                                            </p>
+                                                            <div class="form-group">
+                                                                <label class="col-form-label">Amount</label>
+                                                                <select name="amount" id="amount" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
+                                                                      <option>-----------------select fee-----------------</option>
+                                                                    <option value="25000">#25,000</option>
+                                                                    <option value="35000">#35,000</option>
+                                                                    <option value="55000">#55,000</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-form-label">Payment Type</label>
+                                                                <select name="fees" id="fees" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
+                                                                    <option>-----------------select fee-----------------</option>
+                                                                    <option value="acceptancefees">acceptancefees</option>
+                                                                    <option value="schoolfees">schoolfees</option>
+                                                                    <option value="hostelfees">hostelfees</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <input type="hidden" name="orderID" value="345">
+                                                            <input type="hidden" name="quantity" value="1">
+                                                            <input type="hidden" name="currency" value="NGN">
+                                                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                                                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                                                            <div class="form-submit m-2">
+                                                                <button class="btn btn-success btn-lg mt-2" type="submit" value="Pay Now!">
+                                                                     Pay now
+                                                                </button>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>

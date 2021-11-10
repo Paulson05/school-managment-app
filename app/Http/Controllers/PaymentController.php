@@ -37,7 +37,7 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
 
-        dd($paymentDetails);
+//        dd($paymentDetails);
         $payment = new Payment();
 
         $payment->email = $paymentDetails['data']['customer']['email'];
@@ -45,10 +45,12 @@ class PaymentController extends Controller
         $payment->amount = $paymentDetails['data']['amount'];
         $payment->trans_id = $paymentDetails['data']['id'];
         $payment->ref_id = $paymentDetails['data']['reference'];
+        $payment->users_id = auth()->user()->id;
+
 //        $plan = Payment::create(collect($request->only(['amount','status','trans_id','ref_id', 'email']))->all());
 //        $status =    $plan->save();
         if ($payment->save()){
-            return redirect()->route('home.page');
+            return redirect()->back();
         }
         return redirect()->route('pay');
         // Now you have the payment details,

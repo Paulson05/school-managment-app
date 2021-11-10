@@ -19,9 +19,8 @@ class CreatePaymentTable extends Migration
             $table->string('email');
             $table->double('amount');
             $table->string('status');
-            $table->string('payment_status');
-            $table->string('acceptance_fee')->nullable();
-            $table->string('school_fee')->nullable();
+            $table->tinyInteger('fee_status')->default('1')->comment('1=paid');
+            $table->enum('fees',['acceptancefees', 'schoolfees', 'hostelfees'])->default('acceptancefees');
             $table->string('trans_id');
             $table->string('ref_id');
             $table->timestamps();
