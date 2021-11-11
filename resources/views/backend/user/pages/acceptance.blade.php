@@ -1,5 +1,5 @@
 @extends('backend.user.template.master')
-@section('title', '|course registration')
+@section('title', '|acceptance fee')
 @section('body')
 
 <!-- Container-fluid starts-->
@@ -87,81 +87,60 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="card-footer text-start">
-                                <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
-                                    @csrf
-                                    <div class="row justify-content-center">
-
-                                        <div class="col-xl-12-0">
-                                            <div class="login-card">
-                                                <div>
-
-                                                    <div class="login-main">
-                                                        <form id="paymentForm" class="theme-form">
-                                                            <h4>student payment detials</h4>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label pt-0">Your Name</label>
-                                                                <div class="row g-2">
-                                                                    <div class="col-6">
-                                                                        <input class="form-control" disabled="" type="text"  id="first-name" placeholder="{{auth()->user()->first_name}}">
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <input class="form-control" disabled="" type="text"  id="last-name" placeholder="{{auth()->user()->last_name}}">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Email Address</label>
-                                                                <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
-<!--                                                                <input type="hidden" name="users_id" value="{{auth()->user()->id}}"> {{-- required --}}-->
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Amount</label>
-                                                                <select name="amount" id="amount" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
-                                                                      <option>-----------------select fee-----------------</option>
-                                                                    <option value="25000">#25,000</option>
-                                                                    <option value="35000">#35,000</option>
-                                                                    <option value="55000">#55,000</option>
-
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Payment Type</label>
-                                                                <select name="fees" id="fees" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
-                                                                    <option>-----------------select fee-----------------</option>
-                                                                    <option value="acceptancefees">acceptancefees</option>
-                                                                    <option value="schoolfees">schoolfees</option>
-                                                                    <option value="hostelfees">hostelfees</option>
-
-                                                                </select>
-                                                            </div>
-                                                            <input type="hidden" name="orderID" value="345">
-                                                            <input type="hidden" name="quantity" value="1">
-                                                            <input type="hidden" name="currency" value="NGN">
-                                                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
-                                                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
-                                                            <div class="form-submit m-2">
-                                                                <button class="btn btn-success btn-lg mt-2" type="submit" value="Pay Now!">
-                                                                     Pay now
-                                                                </button>
-                                                            </div>
-
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
+                           <a class="btn  btn-outline-success" href="{{route('getpayment')}}">click to pay acceptance fees</a>
                         </div>
                     </div>
 
                 </form>
             </div>
+            <div class="card data-tables">
+                <h5>Payment transaction</h5>
+                <form method="POST" action="" id="myForm">
+                    @csrf
+                    <table class="table-sm table-bordered" width="100%">
+                        <thead>
+                        <tr>
+                            <th>student name</th>
+                            <th>email</th>
+                            <th>transaction_id</th>
+                            <th>Amount</th>
+                            <th>reference_id</th>
+                            <th>payment type</th>
+                            <th>payment status</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="addRow" class="addRow">
+
+                        </tbody>
+                        <tbody>
+
+                        @php
+                        $posts = \App\Models\Payment::where('users_id',auth()->user()->id)->get();
+                        @endphp
+                        @forelse($posts as $user)
+                        <tr class="text-capitalize">
+                            <td>{{$user->users->getName()}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->trans_id}}</td>
+                            <td>{{$user->amount}}</td>
+                            <td> {{$user->ref_id}}</td>
+                            <td>{{$user->fees_type}}</td>
+                            <td> {{$user->status}}</td>
+
+                        </tr>
+                        @empty
+                        <p>no data</p>
+                        @endforelse
+                        </tbody>
+
+                    </table>
+                    <br>
+
+                </form>
+            </div>
         </div>
     </div>
+
 </div>
 @endsection

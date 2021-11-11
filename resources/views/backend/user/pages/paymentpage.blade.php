@@ -6,43 +6,74 @@
 <div class="container-fluid p-0">
     <div class="row m-0">
         <div class="col-xl-12-0">
-            <div class="login-card">
-                <div>
-                    <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
-                    <div class="login-main">
-                        <form id="paymentForm" class="theme-form">
-                            <h4>Create your account</h4>
-                            <p>Enter your personal details to create account</p>
-                            <div class="form-group">
-                                <label class="col-form-label pt-0">Your Name</label>
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <input class="form-control" type="text" required="" id="first-name" placeholder="First name">
-                                    </div>
-                                    <div class="col-6">
-                                        <input class="form-control" type="text" required="" id="last-name" placeholder="Last name">
+
+
+                        <div class="card-footer text-start">
+                            <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                                @csrf
+                                <div class="row justify-content-center">
+
+                                    <div class="col-xl-12-0">
+                                        <div class="login-card">
+                                            <div>
+
+                                                <div class="login-main">
+                                                    <form id="paymentForm" class="theme-form">
+                                                        <h4>student payment detials</h4>
+                                                        <div class="form-group">
+                                                            <label class="col-form-label pt-0">Your Name</label>
+                                                            <div class="row g-2">
+                                                                <div class="col-6">
+                                                                    <input class="form-control" disabled="" type="text"  id="first-name" placeholder="{{auth()->user()->first_name}}">
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <input class="form-control" disabled="" type="text"  id="last-name" placeholder="{{auth()->user()->last_name}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Payment Type</label>
+                                                            <select name="quantity" id="quantity" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
+                                                                <option>-----------------select fee-----------------</option>
+                                                                <option value="acceptance_fees">acceptance_fees</option>
+                                                                <option value="school_fees">school_fees</option>
+                                                                <option value="hostel_fees">hostel_fees</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Amount</label>
+                                                            <select name="amount" id="amount" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
+                                                                <option>-----------------select fee-----------------</option>
+                                                                <option value="25000">#25,000</option>
+                                                                <option value="35000">#35,000</option>
+                                                                <option value="55000">#55,000</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <input type="hidden" name="orderID" value="345">
+                                                        <input type="hidden" name="quantity" value="accept">
+                                                        <input type="hidden" name="currency" value="NGN">
+                                                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                                                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                                                        <div class="form-submit m-2">
+                                                            <button class="btn btn-success btn-lg mt-2" type="submit" value="Pay Now!">
+                                                                Pay now
+                                                            </button>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Email Address</label>
-                                <input class="form-control" type="email" required="" id="email-address"  placeholder="Test@gmail.com">
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Amount</label>
-                                <div class="form-input position-relative">
-                                    <input class="form-control" type="number" name="amount" required="" id="amount" placeholder="Amount">
+                            </form>
 
-                                </div>
-                            </div>
-                            <div class="form-submit">
-                                <button class="btn btn-secondary" type="submit" onclick="payWithPaystack()"> Pay </button>
-                            </div>
+                        </div>
 
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

@@ -10,4 +10,8 @@ class Payment extends Model
     use HasFactory;
     protected  $guarded= [];
     protected  $table = 'payment';
+
+    public function users(){
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }

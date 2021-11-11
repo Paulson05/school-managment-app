@@ -19,11 +19,12 @@ class CreatePaymentTable extends Migration
             $table->string('email');
             $table->double('amount');
             $table->string('status');
-            $table->tinyInteger('fee_status')->default('1')->comment('1=paid');
-            $table->enum('fees',['acceptancefees', 'schoolfees', 'hostelfees'])->default('acceptancefees');
+            $table->string('fees');
+            $table->string('quantity');
             $table->string('trans_id');
             $table->string('ref_id');
             $table->timestamps();
+
         });
     }
 

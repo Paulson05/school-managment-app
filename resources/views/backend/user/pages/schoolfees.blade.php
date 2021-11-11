@@ -1,5 +1,5 @@
 @extends('backend.user.template.master')
-@section('title', '|course registration')
+@section('title', '|school fees')
 @section('body')
 
 <!-- Container-fluid starts-->
@@ -87,51 +87,10 @@
                                     </form>
                                 </div>
                             </div>
-                            <div  class="col-md-12 mt-0">
-                                <div class="card-body data-tables">
-                                    <h5>Course list</h5>
-                                    <form method="POST" action="" id="myForm">
-                                        @csrf
-                                        <table class="table-sm table-bordered" width="100%">
-                                            <thead>
-                                            <tr>
-                                                <th>Course title</th>
-                                                <th>Course code</th>
-                                                <th width="7%">course unit</th>
-
-                                            </tr>
-                                            </thead>
-                                            <tbody id="addRow" class="addRow">
-
-                                            </tbody>
-                                            <tbody>
-
-                                            @forelse($posts as $user)
-                                            <tr class="text-capitalize">
-                                                <td>{{$user->course_title}}</td>
-                                                <td> {{$user->course_code}}</td>
-                                                <td> {{$user->course_unit}}</td>
-
-                                            </tr>
-                                            @empty
-                                            <p>no data</p>
-                                            @endforelse
-                                            </tbody>
-
-                                        </table>
-                                        <br>
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" type="submit" id="storeButton">purchase store</button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
+                            <a class="btn  btn-success" href="{{route('getpayment')}}">click to pay fee !</a>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <button class="btn btn-primary" type="submit">Update Profile</button>
-                    </div>
+
                 </form>
             </div>
         </div>
