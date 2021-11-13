@@ -35,26 +35,17 @@
                                                             <input type="hidden" name="email" value="{{auth()->user()->email}}"> {{-- required --}}
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-form-label">Payment Type</label>
-                                                            <select name="quantity" id="quantity" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
-                                                                <option>-----------------select fee-----------------</option>
-                                                                <option value="acceptance_fees">acceptance_fees</option>
-                                                                <option value="school_fees">school_fees</option>
-                                                                <option value="hostel_fees">hostel_fees</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
                                                             <label class="col-form-label">Amount</label>
                                                             <select name="amount" id="amount" class="form-control" data-title="Single Unit" data-style="btn-default btn-outline" data-menu-style="dropdown-blue" placeholder="#25,000">
                                                                 <option>-----------------select fee-----------------</option>
-                                                                <option value="25000">#25,000</option>
-                                                                <option value="35000">#35,000</option>
-                                                                <option value="55000">#55,000</option>
-
+                                                                <option value="25000">acceptance fee</option>
+                                                                <option value="75000">School fee</option>
+                                                                <option value="15000">Hostel fee</option>
                                                             </select>
                                                         </div>
+
                                                         <input type="hidden" name="orderID" value="345">
-                                                        <input type="hidden" name="quantity" value="accept">
+                                                        <input type="hidden" name="quantity" value="1">
                                                         <input type="hidden" name="currency" value="NGN">
                                                         <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                                                         <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}

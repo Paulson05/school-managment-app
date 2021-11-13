@@ -1,5 +1,5 @@
 @extends('backend.user.template.master')
-@section('title', '|school fees')
+@section('title', '|acceptance fee')
 @section('body')
 
 <!-- Container-fluid starts-->
@@ -87,13 +87,62 @@
                                     </form>
                                 </div>
                             </div>
-                            <a class="btn  btn-success" href="{{route('getpayment')}}">click to pay fee !</a>
+
                         </div>
                     </div>
 
                 </form>
             </div>
+            <div class="card data-tables">
+                <h5 class="text-center">Payment transaction</h5>
+                <form method="POST" action="" id="myForm">
+                    @csrf
+                    <table class="table-sm table-bordered" width="100%">
+                        <thead>
+                        <tr>
+                            <th>student name</th>
+                            <th>email</th>
+                            <th>transaction_id</th>
+                            <th>Amount</th>
+                            <th>reference_id</th>
+                            <th>payment status</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="addRow" class="addRow">
+
+                        </tbody>
+                        <tbody>
+
+                        @php
+                        $posts = \App\Models\Payment::where('amount', '75000')->where('users_id',auth()->user()->id)->get();
+                        @endphp
+                        @forelse($posts as $user)
+                        <tr class="text-capitalize">
+                            <td>{{$user->users->getName()}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->trans_id}}</td>
+                            <td>{{$user->amount}}</td>
+                            <td> {{$user->ref_id}}</td>
+                            <td> {{$user->status}}</td>
+
+
+                        </tr>
+                        <tr>
+                            @empty
+                            <p class="text-center text-danger">no paymeny yet</p>
+                        </tr>
+
+                        @endforelse
+                        </tbody>
+
+                    </table>
+                    <br>
+
+                </form>
+            </div>
         </div>
     </div>
+
 </div>
 @endsection

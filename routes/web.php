@@ -58,6 +58,9 @@ Route::prefix('user')->group(function (){
         Route::get('/myresult', [UserController::class, 'result'])->name('user.result');
 
 
+        Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+        Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+        Route::get('/getpayment', [PaymentController::class, 'getPayment'])->name('getpayment');
 
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
@@ -98,9 +101,7 @@ Route::prefix('lecturer')->group(function (){
 
     });
 });
-Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
-Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
-Route::get('/getpayment', [PaymentController::class, 'getPayment'])->name('getpayment');
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -20,7 +20,6 @@ class CreatePaymentTable extends Migration
             $table->double('amount');
             $table->string('status');
             $table->string('fees');
-            $table->string('quantity');
             $table->string('trans_id');
             $table->string('ref_id');
             $table->timestamps();

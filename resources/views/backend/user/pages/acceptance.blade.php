@@ -87,14 +87,14 @@
                                     </form>
                                 </div>
                             </div>
-                           <a class="btn  btn-outline-success" href="{{route('getpayment')}}">click to pay acceptance fees</a>
+
                         </div>
                     </div>
 
                 </form>
             </div>
             <div class="card data-tables">
-                <h5>Payment transaction</h5>
+                <h5 class="text-center">Payment transaction</h5>
                 <form method="POST" action="" id="myForm">
                     @csrf
                     <table class="table-sm table-bordered" width="100%">
@@ -104,8 +104,8 @@
                             <th>email</th>
                             <th>transaction_id</th>
                             <th>Amount</th>
+                            <th>fees type</th>
                             <th>reference_id</th>
-                            <th>payment type</th>
                             <th>payment status</th>
 
                         </tr>
@@ -116,7 +116,7 @@
                         <tbody>
 
                         @php
-                        $posts = \App\Models\Payment::where('users_id',auth()->user()->id)->get();
+                        $posts = \App\Models\Payment::where('amount', '25000')->where('users_id',auth()->user()->id)->get();
                         @endphp
                         @forelse($posts as $user)
                         <tr class="text-capitalize">
@@ -124,13 +124,23 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->trans_id}}</td>
                             <td>{{$user->amount}}</td>
+                            <td>
+                                @if($user->amount == '25000')
+                                acceptance fee
+                                @elseif($user->amount == '75000')
+                                school fee
+                                @endif
+                            </td>
                             <td> {{$user->ref_id}}</td>
-                            <td>{{$user->fees_type}}</td>
                             <td> {{$user->status}}</td>
 
+
                         </tr>
-                        @empty
-                        <p>no data</p>
+                        <tr>
+                            @empty
+                            <p class="text-center text-danger">no paymeny yet</p>
+                        </tr>
+
                         @endforelse
                         </tbody>
 

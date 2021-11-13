@@ -57,34 +57,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
-                    Pages<span class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                    <li><a class="dropdown-item" href="index-landing-page.html">Landing Page</a></li>
-                    <li><a class="dropdown-item" href="events.html">Events</a></li>
-                    <li><a class="dropdown-item" href="course-detail.html">Course Details</a></li>
-                    <li><a class="dropdown-item" href="campus-life.html">Campus Life</a></li>
-                    <li><a class="dropdown-item" href="teachers-single.html">Our teachers</a></li>
-                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                    <li><a class="dropdown-item" href="shortcodes.html">Shortcodes</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Others Pages</a>
-                        <ul class="dropdown-menu dropdown-menu1">
-                            <li><a class="dropdown-item" href="index-3.html">Home Style Two</a></li>
-                            <li><a class="dropdown-item" href="index-video.html">Home Video</a></li>
-                            <li><a class="dropdown-item" href="notice-board.html">Notice Board</a></li>
-                            <li><a class="dropdown-item" href="chairman-speech.html">Chairman Speech</a></li>
-                            <li><a class="dropdown-item" href="sample-page.html">Sample Page</a></li>
-                            <li><a class="dropdown-item" href="faq.html">Faq</a></li>
-                            <li><a class="dropdown-item" href="login.html">Login</a></li>
-                            <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-                            <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <a class="" href="{{route('getpayment')}}">pay fees</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="research.html">Research</a>

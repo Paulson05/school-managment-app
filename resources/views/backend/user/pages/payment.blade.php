@@ -1,5 +1,5 @@
 @extends('backend.user.template.master')
-@section('title', '|course registration')
+@section('title', '|all transaction')
 @section('body')
 
 <!-- Container-fluid starts-->
@@ -87,54 +87,77 @@
                                     </form>
                                 </div>
                             </div>
-                            <div  class="col-md-12 mt-0">
-                                <div class="card-body data-tables">
-                                    <h5>Course list</h5>
-                                    <form method="POST" action="" id="myForm">
-                                        @csrf
-                                        <table class="table-sm table-bordered" width="100%">
-                                            <thead>
-                                            <tr>
-                                                <th>Course title</th>
-                                                <th>Course code</th>
-                                                <th width="7%">course unit</th>
 
-                                            </tr>
-                                            </thead>
-                                            <tbody id="addRow" class="addRow">
-
-                                            </tbody>
-                                            <tbody>
-
-                                            @forelse($posts as $user)
-                                            <tr class="text-capitalize">
-                                                <td>{{$user->course_title}}</td>
-                                                <td> {{$user->course_code}}</td>
-                                                <td> {{$user->course_unit}}</td>
-
-                                            </tr>
-                                            @empty
-                                            <p>no data</p>
-                                            @endforelse
-                                            </tbody>
-
-                                        </table>
-                                        <br>
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" type="submit" id="storeButton">purchase store</button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <button class="btn btn-primary" type="submit">Update Profile</button>
-                    </div>
+
+                </form>
+            </div>
+            <div class="card data-tables">
+                <h5 class="text-center">All Payment transaction</h5>
+                <form method="POST" action="" id="myForm">
+                    @csrf
+                    <table class="table-sm table-bordered" width="100%">
+                        <thead>
+                        <tr>
+                            <th>student name</th>
+                            <th>email</th>
+                            <th>transaction_id</th>
+                            <th>Amount</th>
+                            <th>fees type</th>
+                            <th>reference_id</th>
+                            <th>payment status</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="addRow" class="addRow">
+
+                        </tbody>
+                        <tbody>
+
+                        @php
+                        $posts = \App\Models\Payment::where('users_id',auth()->user()->id)->get();
+                        @endphp
+                        @forelse($posts as $user)
+                        <tr class="text-capitalize">
+                            <td>{{$user->users->getName()}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->trans_id}}</td>
+                            <td>{{$user->amount}}</td>
+                            <td>
+                                @if($user->amount == '25000')
+                                   acceptance fee
+                                @elseif($user->amount == '75000')
+                                    school fee
+                                @endif
+                            </td>
+                            <td> {{$user->ref_id}}</td>
+                            <td> {{$user->status}}</td>
+                            <td>
+                                @if($user->amount == '2500')
+                                <button class=" btn btn-danger">acceptance fee</button>
+                                @elseif($user->amount == '7500')
+                                <button class="btn btn-success">school fee</button>
+                                @endif
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            @empty
+                            <p class="text-center text-danger">no paymeny yet</p>
+                        </tr>
+
+                        @endforelse
+                        </tbody>
+
+                    </table>
+                    <br>
+
                 </form>
             </div>
         </div>
     </div>
+
 </div>
 @endsection
