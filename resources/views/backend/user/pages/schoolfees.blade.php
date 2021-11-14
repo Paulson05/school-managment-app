@@ -104,6 +104,7 @@
                             <th>email</th>
                             <th>transaction_id</th>
                             <th>Amount</th>
+                            <th>fees type</th>
                             <th>reference_id</th>
                             <th>payment status</th>
 
@@ -123,6 +124,13 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->trans_id}}</td>
                             <td>{{$user->amount}}</td>
+                            <td>
+                                @if($user->amount == '25000')
+                                acceptance fee
+                                @elseif($user->amount == '75000')
+                                school fee
+                                @endif
+                            </td>
                             <td> {{$user->ref_id}}</td>
                             <td> {{$user->status}}</td>
 

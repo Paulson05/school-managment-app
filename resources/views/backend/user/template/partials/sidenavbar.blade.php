@@ -27,7 +27,7 @@
                         <ul class="sidebar-submenu">
                             <li><a href="{{route('user.acceptance')}}">Acceptance Fee</a></li>
                             <li><a href="{{route('user.payment')}}">Payment Transaction</a></li>
-                            <li><a href="{{route('user.schoolfees')}}">Pay School Fees</a></li>
+                            <li><a href="{{route('user.schoolfees')}}">School Fees</a></li>
                             <li><a href="">Hostel Fee</a></li>
                         </ul>
                     </li>
