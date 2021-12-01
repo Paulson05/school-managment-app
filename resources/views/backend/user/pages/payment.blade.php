@@ -64,7 +64,7 @@
 
 
                                         </table>
-                                        <table class="table-sm table-bordered" width="100%">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                             <tr>
 
@@ -98,7 +98,7 @@
                 <form method="POST" action="" id="myForm">
                     @csrf
                     <div class="table-responsive">
-                    <table class="table-sm table-bordered" width="100%" id="advance-7">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th>student name</th>

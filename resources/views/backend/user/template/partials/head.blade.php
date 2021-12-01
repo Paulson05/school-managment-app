@@ -35,3 +35,14 @@
 <link id="color" rel="stylesheet" href="{{asset('/backend/assets/css/color-1.css')}}" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/responsive.css')}}">
+
+
+<!-- Custom fonts for this template-->
+<link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+
+<!-- Page level plugin CSS-->
+<link href="{{asset('/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="{{asset('/css/admin/sb-admin.css')}}" rel="stylesheet">
+@yield('css_role_page')

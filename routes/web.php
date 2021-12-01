@@ -62,7 +62,7 @@ Route::prefix('user')->group(function (){
         Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
         Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
         Route::get('/getpayment', [PaymentController::class, 'getPayment'])->name('getpayment');
-
+        Route::get('/fetch-category', [PaymentController::class, 'fetchCategory']);
         Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
     });
 });
