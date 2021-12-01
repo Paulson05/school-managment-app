@@ -1,23 +1,8 @@
-@extends('backend.user.template.master')
-@section('title', '|course registration')
-@section('body')
+<!DOCTYPE html>
+<html>
 
-<!-- Container-fluid starts-->
-<div class="container-fluid">
-    <div class="page-title">
-        <div class="row">
+<body>
 
-            <div class="col-6">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Home</li>
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Course Registration</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="edit-profile">
@@ -26,9 +11,6 @@
                 <form class="card">
                     <div class="card-header">
                         <h4 class="card-title mb-0">Register Course</h4>
-                        <div class="text-end">
-                            <a href="{{route('course.registration.pdf')}}" class="btn btn-secondary">print</a>
-                        </div>
                         <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                     </div>
                     <div class="card-body">
@@ -49,9 +31,9 @@
                                     <h4>Student Information</h4>
                                     <form method="POST" action="" id="myForm">
                                         @csrf
-                                        <table class="table-sm table-bordered" width="100%">
+                                        <table class="table-lg table-bordered" border="1" width="100%">
                                             <thead>
-                                            <tr>
+                                            <tr class="table-bordered">
                                                 <th>Student No</th>
                                                 <th>{{auth()->user()->full_number}}</th>
                                                 <th width="7%">session 2020/2021</th>
@@ -67,9 +49,9 @@
 
 
                                         </table>
-                                        <table class="table-sm table-bordered" width="100%">
+                                        <table class="table-lg table-bordered" border="1" width="100%">
                                             <thead>
-                                            <tr>
+                                            <tr class="table-bordered">
 
                                                 <th width="7%">Faculty</th>
                                                 <th width="10%">{{auth()->user()->faculty->name}}</th>
@@ -95,7 +77,7 @@
                                     <h5>Course list</h5>
                                     <form method="POST" action="" id="myForm">
                                         @csrf
-                                        <table class="table-sm table-bordered" width="100%">
+                                        <table class="table-lg table-bordered" border="2" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>Course title</th>
@@ -111,7 +93,7 @@
 
 
                                             @forelse($posts as $user)
-                                            <tr class="text-capitalize">
+                                            <tr class="text-capitalize table-bordered">
                                                 <td>{{$user->course_title}}</td>
                                                 <td> {{$user->course_code}}</td>
                                                 <td> {{$user->course_unit}}</td>
@@ -124,21 +106,19 @@
 
                                         </table>
                                         <br>
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" type="submit" id="storeButton">purchase store</button>
-                                        </div>
+
 
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        <button class="btn btn-primary" type="submit">Update Profile</button>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-@endsection
+
+
+</body>
+</html>

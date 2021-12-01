@@ -97,7 +97,8 @@
                 <h5 class="text-center">All Payment transaction</h5>
                 <form method="POST" action="" id="myForm">
                     @csrf
-                    <table class="table-sm table-bordered" width="100%">
+                    <div class="table-responsive">
+                    <table class="table-sm table-bordered" width="100%" id="advance-7">
                         <thead>
                         <tr>
                             <th>student name</th>
@@ -160,4 +161,14 @@
     </div>
 
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function () {
+
+
+
+    });
+</script>
 @endsection

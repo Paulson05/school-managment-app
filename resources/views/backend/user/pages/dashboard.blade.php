@@ -28,6 +28,9 @@
                     <div class="card-header">
                         <h4 class="card-title mb-0">Student Profile</h4>
                         <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+                       <div class="text-end">
+                           <a class="btn btn-outline-secondary">print</a>
+                       </div>
                     </div>
                     <div class="card-body">
                         <div class="row mb-2">
@@ -105,9 +108,7 @@
 <!--                            </div>-->
                             <div  class="col-md-12">
                                 <div class="card-body data-tables">
-                                    <div class="left">
-                                        <button class="btn btn-secondary">print</button>
-                                    </div>
+
                                     <h4>Student Information</h4>
                                     <form method="POST" action="" id="myForm">
                                         @csrf

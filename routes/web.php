@@ -56,6 +56,7 @@ Route::prefix('user')->group(function (){
         Route::get('/payment', [UserController::class, 'payment'])->name('user.payment');
         Route::get('/schoolfees', [UserController::class, 'schoolfees'])->name('user.schoolfees');
         Route::get('/myresult', [UserController::class, 'result'])->name('user.result');
+        Route::get('course/registtration/pdf', [UserController::class,  'CourserRegistrationPdf'])->name('course.registration.pdf');
 
 
         Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');

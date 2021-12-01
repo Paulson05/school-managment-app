@@ -51,6 +51,15 @@ class userController extends Controller
 
         return view ('backend.user.pages.result',['posts' => $posts, 'courses' => $courses] );
     }
+
+    public  function CourserRegistrationPdf(){
+        $posts = CourserRegistration::where('levels_id',auth()->user()->levels_id)
+            ->where('departments_id',auth()->user()->departments_id)
+            ->where('levels_id',auth()->user()->levels_id)
+            ->where('semester_id',auth()->user()->semester_id)->get();
+        $pdf = \PDF::loadView('backend.user.pdf.courseRegistrationpdf',['posts' => $posts,]);
+        return $pdf->stream('courseregistration.pdf');
+    }
     public function acceptance(){
         return view ('backend.user.pages.acceptance', );
     }
