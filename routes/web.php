@@ -18,6 +18,7 @@ use App\Http\Controllers\Exam\QuizController;
 use App\Http\Controllers\Lecturer\LecturerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\user\auth\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
