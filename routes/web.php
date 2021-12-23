@@ -1,8 +1,9 @@
 <?php
 
+//use App\Http\Controllers\admin\auth\adminController;
+
+
 use App\Http\Controllers\admin\auth\adminController;
-
-
 use App\Http\Controllers\admin\CourserRegistrationController;
 use App\Http\Controllers\admin\DepartmentController;
 use App\Http\Controllers\admin\ExamResultController;
@@ -13,10 +14,12 @@ use App\Http\Controllers\CourseRegistrationController;
 use App\Http\Controllers\Exam\QuestionsController;
 use App\Http\Controllers\Exam\QuizController;
 
-use App\Http\Controllers\FrontEnd\ExamController;
+
 use App\Http\Controllers\Lecturer\LecturerController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\user\auth\userController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,12 +35,12 @@ Route::resource('level', LevelController::class)->except('create');
 
 
 
-
-Route::get('/home-quiz', [ExamController::class, 'QuizList'])->name('frontend.quiz');
-Route::get('/exam-start/{id}', [ExamController::class, 'exam'])->name('frontend.exam');
-Route::post('/exams', [ExamController::class, 'examPost'])->name('frontend.exam.post');
-Route::get('/my_result', [ExamController::class, 'examResult'])->name('frontend.exam.result');
-Route::get('/my_result-details', [ExamController::class, 'ResultDetails'])->name('frontend.exam.result.details');
+//
+//Route::get('/home-quiz', [ExamController::class, 'QuizList'])->name('frontend.quiz');
+//Route::get('/exam-start/{id}', [ExamController::class, 'exam'])->name('frontend.exam');
+//Route::post('/exams', [ExamController::class, 'examPost'])->name('frontend.exam.post');
+//Route::get('/my_result', [ExamController::class, 'examResult'])->name('frontend.exam.result');
+//Route::get('/my_result-details', [ExamController::class, 'ResultDetails'])->name('frontend.exam.result.details');
 
 
 Route::prefix('user')->group(function (){
@@ -102,6 +105,12 @@ Route::prefix('lecturer')->group(function (){
 
     });
 });
+
+
+Route::resource('role', RolesController::class)->only(['index','store','show','update','destroy','edit',]);
+//Route::get('role/index', [RolesController::class, 'index'])->name('role.index');
+//Route::get('role/create', [RolesController::class, 'create'])->name('role.create');
+
 
 Auth::routes();
 

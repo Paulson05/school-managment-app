@@ -66,7 +66,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="{{asset('/backend/assets/demo/demo.css')}}" rel="stylesheet" />
 
+<link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
+<!-- Page level plugin CSS-->
+<link href="{{asset('/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="{{asset('/css/admin/sb-admin.css')}}" rel="stylesheet">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
