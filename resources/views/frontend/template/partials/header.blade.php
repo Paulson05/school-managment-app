@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Home - Unisco - Education Website Template for University, College, School</title>
 
-<script src="../../cdn-cgi/apps/head/OkbNSnEV_PNHTKP2_EYPrFNyZ8Q.js"></script><link rel="stylesheet" href="{{seccure_asset('frontend/css/bootstrap.min.css')}}">
+<script src="../../cdn-cgi/apps/head/OkbNSnEV_PNHTKP2_EYPrFNyZ8Q.js"></script><link rel="stylesheet" href="{{secure_asset('frontend/css/bootstrap.min.css')}}">
 
 <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
 
