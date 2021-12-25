@@ -6,12 +6,12 @@
 
 <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
 
-<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{secure_asset('frontend/css/font-awesome.min.css')}}">
 
-<link rel="stylesheet" href="{{asset('frontend/css/simple-line-icons.css')}}">
+<link rel="stylesheet" href="{{secure_asset('frontend/css/simple-line-icons.css')}}">
 
-<link rel="stylesheet" href="{{asset('forntend/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('frontend/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{secure_asset('forntend/css/slick.css')}}">
+<link rel="stylesheet" href="{{secure_asset('frontend/css/slick-theme.css')}}">
+<link rel="stylesheet" href="{{secure_asset('frontend/css/owl.carousel.min.css')}}">
 
-<link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
+<link href="{{secure_asset('frontend/css/style.css')}}" rel="stylesheet">
