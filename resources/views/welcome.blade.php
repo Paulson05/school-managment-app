@@ -230,7 +230,7 @@
                 <img src="images/welcom_sign.png" class="img-fluid" alt="welcom-img">
             </div>
             <div class="col-md-4">
-                <img src="images/campus/campus-img_05.jpg" class="img-fluid about-img" alt="#">
+                <img src="{{asset('frontend/images/campus/campus-img_05.jpg')}}" class="img-fluid about-img" alt="#">
             </div>
         </div>
     </div>
@@ -248,7 +248,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="courses_box mb-4">
                     <div class="course-img-wrap">
-                        <img src="images/courses_1.jpg" class="img-fluid" alt="courses-img">
+                        <img src="{{asset('frontend/images/courses_1.jpg')}}" class="img-fluid" alt="courses-img">
                         <div class="courses_box-img">
                             <div class="courses-link-wrap">
                                 <a href="course-detail.html" class="course-link"><span>course Details </span></a>
@@ -259,7 +259,7 @@
                     </div>
 
                     <div class="courses_icon">
-                        <img src="images/plus-icon.png" class="img-fluid close-icon" alt="plus-icon">
+                        <img src="{{asset('frontend/images/plus-icon.png')}}" class="img-fluid close-icon" alt="plus-icon">
                     </div>
                     <a href="course-detail.html" class="course-box-content">
                         <h3>Biochemistry</h3>
@@ -270,7 +270,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="courses_box mb-4">
                     <div class="course-img-wrap">
-                        <img src="images/courses_2.jpg" class="img-fluid" alt="courses-img">
+                        <img src="{{asset('frontend/images/courses_2.jpg')}}" class="img-fluid" alt="courses-img">
                         <div class="courses_box-img">
                             <div class="courses-link-wrap">
                                 <a href="course-detail.html" class="course-link"><span>course Details </span></a>
@@ -281,7 +281,7 @@
                     </div>
 
                     <div class="courses_icon">
-                        <img src="images/plus-icon.png" class="img-fluid close-icon" alt="plus-icon">
+                        <img src="{{asset('frontend/images/plus-icon.png')}}" class="img-fluid close-icon" alt="plus-icon">
                     </div>
                     <a href="course-detail.html" class="course-box-content">
                         <h3>History</h3>
@@ -292,7 +292,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="courses_box mb-4">
                     <div class="course-img-wrap">
-                        <img src="images/courses_3.jpg" class="img-fluid" alt="courses-img">
+                        <img src="{{asset('frontend/images/courses_3.jpg')}}" class="img-fluid" alt="courses-img">
                         <div class="courses_box-img">
                             <div class="courses-link-wrap">
                                 <a href="course-detail.html" class="course-link"><span>course Details </span></a>
@@ -303,7 +303,7 @@
                     </div>
 
                     <div class="courses_icon">
-                        <img src="images/plus-icon.png" class="img-fluid close-icon" alt="plus-icon">
+                        <img src="{{asset('frontend/images/plus-icon.png')}}" class="img-fluid close-icon" alt="plus-icon">
                     </div>
                     <a href="course-detail.html" class="course-box-content">
                         <h3>Human Sciences</h3>
@@ -314,7 +314,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="courses_box mb-4">
                     <div class="course-img-wrap">
-                        <img src="images/courses_4.jpg" class="img-fluid" alt="courses-img">
+                        <img src="{{asset('frontend/images/courses_4.jpg')}" class="img-fluid" alt="courses-img">
                         <div class="courses_box-img">
                             <div class="courses-link-wrap">
                                 <a href="course-detail.html" class="course-link"><span>course Details </span></a>
