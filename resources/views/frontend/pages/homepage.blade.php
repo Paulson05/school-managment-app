@@ -10,7 +10,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img class="d-block" src="{{asset('frontend/images/slider.jpg')}}" alt="First slide">
+                    <img class="d-block" src="{{secure_asset('frontend/images/slider.jpg')}}" alt="First slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <h1>Creative Thinking &amp; Innovation</h1>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="{{asset('frontend/images/slider-2.jpg')}}" alt="Second slide">
+                    <img class="d-block" src="{{secure_asset('frontend/images/slider-2.jpg')}}" alt="Second slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <h1>We foster wisdom</h1>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="{{asset('frontend/images/slider-3.jpg')}}" alt="Third slide">
+                    <img class="d-block" src="{{secure_asset('frontend/images/slider-3.jpg')}}" alt="Third slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <h1>Campus life @ Unisco</h1>
